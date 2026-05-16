@@ -82,7 +82,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run:  |
           ./gradlew clean build
-          ./gradlew sonarqube --info
+          ./gradlew sonar --info
 
   # Dependency submission for Dependabot
   dependency-submission:
