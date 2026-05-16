@@ -80,9 +80,9 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: |
-        ./gradlew clean build
-        ./gradlew sonarqube --info
+        run:  |
+          ./gradlew clean build
+          ./gradlew sonarqube --info
 
   # Dependency submission for Dependabot
   dependency-submission:
