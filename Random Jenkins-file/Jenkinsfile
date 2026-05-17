@@ -1,0 +1,25 @@
+pipeline {
+    agent {
+        label 'Work-Node'
+    }
+
+    stages {
+        stage('Deployment') {
+            steps {
+                sh 'docker pull gurkiran24/spring-boot-gradle'
+
+                sh '''
+                docker stop springboot-container || true
+                docker rm springboot-container || true
+                docker run -d --name springboot-container -p 8082:8080 gurkiran24/spring-boot-gradle
+                '''
+            }
+        }
+
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
